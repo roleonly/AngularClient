@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+
+
+<div *ngIf="rid!=undefined or rid>0" >
+<button mat-raised-button color="secondary" class="widdth " (click)="create_dem(rid)">
+    Create DEM File
+
+    
+
+  </button>
+
+</div>
+
+
+<div *ngFor="let data of raster_data">
+  
+  <div class="row heiight">
+        <div class="col col-md-6 ">
+  <img id="IMAGE" src={{data.URL}} alt="" height="" width="100%" (click)="putMAP(data.color_range,data.URL)" >
+</div>
+<div class="col col-md-6 " >
+  <button mat-raised-button color="secondary" class="widdth">
+    <a href={{data.URL}} target="blank" class="whitetext ">download PNG</a>
+    
+  </button>
+  <button mat-raised-button color="secondary" class="widdth">
+   
+    <a href={{data.xmlURL}} target="blank" class="whitetext ">download xml</a>
+  </button>
+  
+  <button mat-raised-button color="secondary" class="widdth whitetext" (click)="deleteDem(data.id)">
+   Delete
+   
+  </button>
+ 
+</div></div>
+</div>
+
+
+
+
+<style>
+  .padding15 {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+
+  }
+  .widdth{
+    width:90%;
+    margin:2px;
+
+   
+  }
+  .margin15 {
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+  }
+
+  .whiteText {
+    color: white;
+  }
+.heiight{
+    padding-top:25px !important;
+}
+</style>

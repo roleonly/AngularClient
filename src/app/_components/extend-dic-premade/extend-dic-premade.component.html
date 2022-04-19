@@ -1,0 +1,186 @@
+<app-minimenu></app-minimenu>
+<div class="row">
+    <div class="col col-md-2 color1 fullheight">
+
+ 
+
+
+
+
+
+  <mat-table #table [dataSource]="parcels_user" matSort class="mat-cell color1">
+    ng update @angular/cli @angular/core
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell   *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+      <mat-cell *matCellDef="let row" >{{row.id}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell  *matHeaderCellDef mat-sort-header>Your Parcels</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.name}}</mat-cell>
+    </ng-container>
+
+
+    <!-- actions -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell [hidden]="true" *matHeaderCellDef>
+        Actions
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row; let i=index;">
+        
+
+        <button mat-icon-button color="white" (click)="deleteUserParcel(i, row.id, row.name)">
+          <mat-icon  aria-label="Delete">delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+    <mat-row (mouseenter)="bip(row.id)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+
+  
+
+
+
+
+    </div>
+    <div class="col col-md-2 color2 fullheight">
+      
+       
+
+
+            <mat-table #table [dataSource]="parcels_city" matSort class="mat-cell  color2">
+              
+              <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+          
+              <!-- ID Column -->
+              <ng-container matColumnDef="id">
+                <mat-header-cell  [hidden]="true" *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+                <mat-cell *matCellDef="let row" >{{row.id}}</mat-cell>
+              </ng-container>
+          
+              <ng-container matColumnDef="name">
+                <mat-header-cell  *matHeaderCellDef mat-sort-header>Cities</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.name}}</mat-cell>
+              </ng-container>
+          
+          
+              <!-- actions -->
+              <ng-container matColumnDef="actions">
+                <mat-header-cell [hidden]="true" *matHeaderCellDef>
+                  Actions
+                </mat-header-cell>
+          
+                <mat-cell *matCellDef="let row; let i=index;">
+                  
+          
+                  <button mat-icon-button color="white" (click)="AddtoUserParcel(i, row.id, row.name)">
+                    <mat-icon  aria-label="Create">add</mat-icon>
+                  </button>
+                </mat-cell>
+              </ng-container>
+          
+              <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+              <mat-row (mouseenter)="bip(row.id)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+          
+          
+            
+          
+          
+
+    
+    
+    
+          </div>
+    <div class="col col-md-2 color3 fullheight">
+        
+       
+
+            <mat-table #table [dataSource]="parcels_country" matSort class="mat-cell  color3">
+              
+              <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+          
+              <!-- ID Column -->
+              <ng-container matColumnDef="id">
+                <mat-header-cell  [hidden]="true" *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+                <mat-cell *matCellDef="let row" >{{row.id}}</mat-cell>
+              </ng-container>
+          
+              <ng-container matColumnDef="name">
+                <mat-header-cell  *matHeaderCellDef mat-sort-header>Countries</mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.name}}</mat-cell>
+              </ng-container>
+          
+          
+              <!-- actions -->
+              <ng-container matColumnDef="actions">
+                <mat-header-cell [hidden]="true" *matHeaderCellDef>
+                  Actions
+                </mat-header-cell>
+          
+                <mat-cell *matCellDef="let row; let i=index;">
+                  
+          
+                  
+                </mat-cell>
+              </ng-container>
+          
+              <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+              <mat-row (mouseenter)="bip(row.id)" *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+          
+          
+            
+          
+       
+
+
+
+    </div>
+    <div id="mapp" class="col col-md-6 color4 fullheight mapp">
+
+      
+    </div>
+</div>
+
+<style>
+    
+    .color1 {
+        background-color: #f44336;
+        color:white;
+    }
+    .color2 {
+        background-color: #1da3d8;
+        color:white;
+    }
+    .color3 {
+        background-color: #27b070;
+        color:white;
+    }
+    .color4 {
+        background-color: #d1dd2c;
+        
+    }
+    .fullheight {
+        height: 100vh;
+       
+        padding-right: 0 !important;
+  overflow: auto;
+    }
+
+    .row .col{
+      padding:0 !important;
+    }
+
+   
+</style>

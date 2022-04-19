@@ -1,0 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+<button class="waves-effect staticButton staticButton1 waves-light" *ngIf="_auth.isLoggedIn()" id="logoutButton" (click)="LogoutButtonPressed()"> {{this._auth.userValue.username}} | Logout</button>
+<button class="waves-effect staticButton staticButton2 waves-light" *ngIf="_auth.isLoggedIn()" id="logoutButton" (click)="HomeButtonPressed()"> Home</button>

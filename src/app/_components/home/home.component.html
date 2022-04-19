@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+
+<div class="row">
+
+
+<div class="col col-md-4">
+
+<section id="form" [hidden]="_auth.isLoggedIn()">
+    
+    <div id="toggle-forms">
+        <button class="waves-effect waves-light active" id="loginButton" (click)="LoginButtonPressed()">Login</button>
+        <button class="waves-effect waves-light" id="registerButton" (click)="RegisterButtonPressed()">Register</button>
+    </div>
+
+   
+<app-login class="LoginForm"></app-login>    
+<app-register class="RegisterForm"></app-register>  
+
+
+
+</section>
+
+<section class="menuBackground" [hidden]="!_auth.isLoggedIn()">
+
+    
+    
+    <button class="waves-effect waves-light menu-button menu-button-1" (click)="Menu1Click()"> 
+       Extend your dictionary <br> with premade data
+    </button>
+    
+    <button class="waves-effect waves-light menu-button menu-button-2" (click)="Menu2Click()"> 
+        Extend your dictionary <br> with MAP interface
+     </button>
+     <button class="waves-effect waves-light menu-button menu-button-3" (click)="Menu3Click()"> 
+        Get raster images <br> with your dictionary
+     </button>
+
+     <button class="waves-effect staticButton waves-light" *ngIf="_auth.isLoggedIn()" id="logoutButton" (click)="LogoutButtonPressed()"> {{this._auth.userValue.username}} | Logout</button>
+
+
+
+</section>
+</div>
+
+
+<div class="col col-md-8 fill"  >
+
+
+
+</div></div>
+
+

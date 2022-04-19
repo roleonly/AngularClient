@@ -1,0 +1,137 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Toolbar */
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+  /* Filter */
+  .form {
+    min-height: 56px;
+    max-height: 56px;
+    display: flex;
+    align-items: center;
+    padding: 8px 24px 0;
+    font-size: 20px;
+    justify-content: space-between;
+    border-bottom: 1px solid transparent;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    flex-grow: 1;
+    margin-top: 8px;
+  }
+  
+  /* Mat table */
+  .no-results {
+    display: flex;
+    justify-content: center;
+    padding: 14px;
+    font-size: 14px;
+    font-style: italic;
+  }
+  
+  .mat-cell:nth-child(1),
+  .mat-header-cell:nth-child(1){
+    flex: 0 0 85%;
+  }
+  
+  .mat-cell:nth-child(2),
+  .mat-header-cell:nth-child(2){
+    flex: 0 0 15%;
+  }
+  
+  .mat-icon {
+    display: none;
+  }
+  .mat-row:hover
+  {
+    opacity: 0.5;
+    background-color: black;
+    color: #000;
+    
+  }
+  .mat-row:hover  .mat-icon {
+    
+      display: block;
+   
+  }
+  
+  .mat-cell {
+    color: white;
+  }
+  
+  
+  /* width */
+  ::-webkit-scrollbar {
+    width: 2px;
+    height:2px;
+    display: none;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+   
+    border:none;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(198, 201, 21);
+    
+  }
+
+
+
+ 
+  .my-legend {
+  max-width: 600px !important;
+  position:fixed;
+  top:25px;
+  left:35%;
+  z-index:9999;
+  }
+  
+  .my-legend .legend-title {
+      text-align: left;
+      margin-bottom: 8px;
+      font-weight: bold;
+      font-size: 90%;
+      z-index: -1;
+      
+      }
+    .my-legend .legend-scale ul {
+      margin: 0;
+      padding: 0;
+      float: left;
+      list-style: none;
+      }
+    .my-legend .legend-scale ul li {
+      display: block;
+      float: left;
+      width: 50px;
+      margin-bottom: 6px;
+      text-align: center;
+      font-size: 80%;
+      list-style: none;
+      }
+    .my-legend ul.legend-labels li span {
+      display: block;
+      float: left;
+      height: 15px;
+      width: 50px;
+      
+      }
+    .my-legend .legend-source {
+      font-size: 70%;
+      color: #999;
+      clear: both;
+      }
+    .my-legend a {
+      color: #777;
+      }

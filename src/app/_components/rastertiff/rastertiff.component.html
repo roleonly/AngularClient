@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+<div *ngIf="raster_data.latitude>0" class="margin15">
+<h1>{{rastername}}</h1>
+
+<p>Latitude=   {{raster_data.latitude}}</p>
+<p>longitude=  {{raster_data.longitude}}</p>
+<p>URL=    {{raster_data.URL}}</p>
+<p>Elevation Min={{raster_data.elevation_min}}</p>
+<p>elevation max={{raster_data.elevation_max}}</p>
+<p>width=           {{raster_data.width}}</p>
+<p>height=          {{raster_data.height}}</p>
+<p>scale=           {{raster_data.scale}}</p>
+<button  mat-raised-button color="secondary" class="" >
+<a href={{raster_data.URL}} target="blank" class="whitetext ">download</a>
+</button>
+</div>
+
+<style>
+    .padding15{
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        
+    }
+    .margin15{
+        margin-left:15px !important;
+        margin-right: 15px !important;
+    }
+    .whiteText{
+        color: white;
+    }
+</style>

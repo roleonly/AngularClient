@@ -1,0 +1,172 @@
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.3.0/mapbox-gl-draw.css' type='text/css' />
+
+
+
+<app-minimenu></app-minimenu>
+<div class="row">
+    <div class="col col-md-2 color1 fullheight">
+
+              
+               <div class="row  color1 halfheight">
+
+
+
+
+        <mat-table #table [dataSource]="parcels_user" matSort class="mat-cell color1">
+            ng update @angular/cli @angular/core
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+        
+            <!-- ID Column -->
+            <ng-container matColumnDef="id">
+              <mat-header-cell   *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+              <mat-cell *matCellDef="let row" >{{row.id}}</mat-cell>
+            </ng-container>
+        
+            <ng-container matColumnDef="name">
+              <mat-header-cell  *matHeaderCellDef mat-sort-header>Your Parcels</mat-header-cell>
+              <mat-cell *matCellDef="let row"> {{row.name}}</mat-cell>
+            </ng-container>
+        
+        
+            <!-- actions -->
+            <ng-container matColumnDef="actions">
+              <mat-header-cell [hidden]="true" *matHeaderCellDef>
+                Actions
+              </mat-header-cell>
+        
+              <mat-cell *matCellDef="let row; let i=index;">
+                
+        
+                <button mat-icon-button color="white" (click)="add_raster(i, row.id, row.name)">
+                  <mat-icon  aria-label="add">add</mat-icon>
+                </button>
+              </mat-cell>
+            </ng-container>
+        
+            <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+            <mat-row  *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          </mat-table>
+
+
+  
+
+</div>
+<div class="row  color3 halfheight">
+
+
+
+    <app-rastertiff [rid]=selected_parcel_id [rastername]=selected_parcel_name class="padding15"></app-rastertiff>
+   
+
+
+
+</div>
+
+    </div>
+    <div class="col col-md-2 color2 fullheight">
+<app-rasterpng [rid]=selected_parcel_id></app-rasterpng>
+
+
+
+
+</div>
+
+
+<div id="mapp" class="col col-md-8 color2 fullheight">
+  
+</div>
+
+
+</div>
+
+
+<div class='my-legend' >
+  <div class='legend-title'>Elevation Legend</div>
+  <div class='legend-scale'>
+    <ul class='legend-labels' *ngIf="colors!=undefined;">
+      
+      
+      
+      <li *ngFor="let color of colors"><span style="background:{{color[1]}}"    ></span>{{color[0]}}</li>
+    
+      
+    </ul>
+  </div>
+  <div class='legend-source'>Source: <a href="#">NASA WORLD</a></div>
+  </div>
+
+<style>
+    
+    .margin15{
+   padding-left: 15px !important;
+   padding-right: 15px !important;
+   margin-top: 50px !important;
+  }
+ .padding15{
+   padding-left: 15px !important;
+   padding-right: 15px !important;
+   
+  }
+
+  .whiteText{
+    color: white;
+  }
+
+    .color1 {
+        background-color: #f44336;
+        color:white;
+    }
+    .color2 {
+        background-color: #363333;
+        color:white;
+    }
+    .color3 {
+        background-color: #27b070;
+        
+    }
+    
+    .halfheight {
+        height: 50vh;
+        width:100%;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+        margin: 0 !important;
+        overflow: auto;
+    }
+    .fullheight {
+        height: 100vh;
+       
+        padding-right: 0 !important;
+  overflow: auto;
+    }
+
+    .row .col{
+      padding:0 !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      margin:0 !important;
+      
+    
+     
+    }
+
+  
+
+    .row{
+      display:block
+    }
+  
+
+    .row>* {
+    
+      padding:0 !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    margin-top: var(--bs-gutter-y);
+    
+}
+
+
+   
+</style>
